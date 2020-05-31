@@ -34,7 +34,7 @@ include_regions = False
 messy = True
 
 
-# list of indictor groups that have wrong algebraic sign
+# list of indictor groups that require an algebraic sign switch
 l_as = pd.read_csv('input/algebraic_sign_switch.csv', encoding=enc)
 l_as = l_as.indicatorGroup.tolist()
 
@@ -100,13 +100,6 @@ def run_script(file_path):
         cats.remove('region')
 
 
-    # combine charts
-    data.loc[(data.chartName == '_Miljø og energi afgifter2'),
-             'chartName'] = '_Miljø og energi afgifter'
-    data.loc[(data.chartTitle == '_Miljø og energi afgifter2'),
-             'chartName'] = '_Miljø og energi afgifter'
-
-
     # make auxiliary dataframes
     cols = data.columns[data.columns.isin(cats)].tolist()
     df1 = data[cols].drop_duplicates().reset_index(drop=True)
@@ -138,7 +131,7 @@ def run_script(file_path):
                                  .total_multiplied.transform(lambda x: x / x.sum()))
 
 
-    # safe meta information
+    # save meta information
     scnNames = data.scenario.unique()
 
 
