@@ -11,6 +11,7 @@ TODO: encoding for SingleLine=False not working
 import pandas as pd
 import glob
 import os
+from string import Template
 
 #%% Set working directory
 # Return absolute path to this file
@@ -24,7 +25,7 @@ from defs import read_data, create_json
 
 #%%
 
-idf_n = file_path.split('\\')[1].split('.')[0]
+idf_n = 'output'
 
 # directories
 dirs = ['input', 'output']
@@ -116,28 +117,48 @@ for i in i2m.sheet_name.unique():
 scnNames = data.scenario.unique()
 
 
-# create min and max values per chart name, title and lable for y axis
+# create min and max values per chart name, title and label for y axis
 data['minY'] = data.total
 data.loc[data.minY > 0, 'minY'] = 0
 data['maxY'] = data.total
 charts = data.groupby(['chartName',
                        'chartTitle',
-                       'lable']).agg({'minY':'min','maxY':'max'})
+                       'label']).agg({'minY':'min','maxY':'max'})
 charts = charts.reset_index().to_dict('records')
 
+with open('templates/charts.txt', 'r', encoding=enc) as file:
+    chartsTemplate = file.read()
 
+with open('templates/singleChart.txt', 'r', encoding=enc) as file:
+    singleChartTemplate = file.read()
+    
+with open('templates/singleChartDiff.txt', 'r', encoding=enc) as file:
+    singleChartDiffTemplate = file.read()
+
+chartsCode = ''
+chartsDiffCode = ''
+
+for i in charts:
+    chartsCode += Template(singleChartTemplate).safe_substitute(
+        chartName=i['chartName'],
+        chartTitle=i['chartTitle'],
+        label=i['label'],
+        minY=str(int(i['minY']-.5)),
+        maxY=str(int(i['maxY']+.5)))
+    
+    chartsDiffCode += Template(singleChartDiffTemplate).safe_substitute(
+        chartName=i['chartName'],
+        chartTitle=i['chartTitle'],
+        label=i['label'],
+        minY=str(-1),
+        maxY=str(1))
+
+chartsPage = Template(chartsTemplate).safe_substitute(
+    chartsCode=chartsCode, chartsDiffCode=chartsDiffCode)
+    
 # create charts text file
 with open('output/' + idf_n + 'charts.txt', 'w', encoding=enc) as file:
-    text = ''
-    for i in charts:
-        text += ("<StackedBarChart chartName='" + i['chartName'] +
-                 "' chartTitle='" + i['chartTitle'] +
-                 "' selectedScenario={selectedScenario} " +
-                 "selectedScenario2={selectedScenario2} " +
-                 "combinedChart={false} label='" + i['lable'] +
-                 "' minY={'" + str(int(i['minY']-.5)) +
-                 "'} maxY={'" + str(int(i['maxY']+.5)) + "'} />" + '\n')
-    file.write(text)
+    file.write(chartsPage)
 
 
 # create scenarioOptions json file

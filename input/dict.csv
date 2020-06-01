@@ -1,20 +1,20 @@
 sheetname,new_sheetname,filename
-wv_TRA Final Energy Use by Fue,TRA Final Energy Use by Fuel,tab4
-wv_TRA Final Energy Use by Dem,TRA Final Energy Use by Demand,tab4
-wv_TPES,TPES,tab1
-wv_RES Final Energy Use by Fue,RES Final Energy Use by Fuel,tab6
-wv_RES Final Energy Use by Dem,RES Final Energy Use by Demand,tab6
-wv_Renewables_in_TPES,Renewables_in_TPES,tab1
-wv_Primary Energy balance,Primary Energy balance,tab3
-wv_IND Final Energy Use by Fue,IND Final Energy Use by Fuel,tab5
-wv_IND Final Energy Use by Dem,IND Final Energy Use by Demand,tab5
-wv_Final Energy by Sector,Final Energy by Sector,tab1
-wv_Final Energy by Fuel,Final Energy by Fuell,tab1
-wv_Electricity Generation,Electricity Generation,tab2
-wv_Electricity Generating Capa,Electricity Generating Capa,tab2
-wv_COM Final Energy Use by Fue,COM Final Energy Use by Fuel,tab7
-wv_COM Final Energy Use by Dem,COM Final Energy Use by Demand,tab7
-wv_CO2-eq Emissions by Sector,CO2-eq Emissions by Sector,tab1
-wv_Annual System Costs by Type,Annual System Costs by Type,tab1
-wv_AGR Final Energy Use by Fue,AGR Final Energy Use by Fuel,tab8
-wv_AGR Final Energy Use by Dem,AGR Final Energy Use by Demand,tab8
+wv_TRA Final Energy Use by Fue,TRA Final Energy Use by Fuel,stackedBarTab4
+wv_TRA Final Energy Use by Dem,TRA Final Energy Use by Demand,stackedBarTab4
+wv_TPES,TPES,stackedBarTab1
+wv_RES Final Energy Use by Fue,RES Final Energy Use by Fuel,stackedBarTab6
+wv_RES Final Energy Use by Dem,RES Final Energy Use by Demand,stackedBarTab6
+wv_Renewables_in_TPES,Renewables_in_TPES,stackedBarTab1
+wv_Primary Energy balance,Primary Energy balance,stackedBarTab3
+wv_IND Final Energy Use by Fue,IND Final Energy Use by Fuel,stackedBarTab5
+wv_IND Final Energy Use by Dem,IND Final Energy Use by Demand,stackedBarTab5
+wv_Final Energy by Sector,Final Energy by Sector,stackedBarTab1
+wv_Final Energy by Fuel,Final Energy by Fuell,stackedBarTab1
+wv_Electricity Generation,Electricity Generation,stackedBarTab2
+wv_Electricity Generating Capa,Electricity Generating Capa,stackedBarTab2
+wv_COM Final Energy Use by Fue,COM Final Energy Use by Fuel,stackedBarTab7
+wv_COM Final Energy Use by Dem,COM Final Energy Use by Demand,stackedBarTab7
+wv_CO2-eq Emissions by Sector,CO2-eq Emissions by Sector,stackedBarTab1
+wv_Annual System Costs by Type,Annual System Costs by Type,stackedBarTab1
+wv_AGR Final Energy Use by Fue,AGR Final Energy Use by Fuel,stackedBarTab8
+wv_AGR Final Energy Use by Dem,AGR Final Energy Use by Demand,stackedBarTab8

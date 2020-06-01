@@ -1,0 +1,12 @@
+            <StackedBarChart
+              chartName="${chartName}"
+              chartTitle="${chartTitle}"
+              selectedScenario={selectedScenario}
+              selectedScenario2={selectedScenario2}
+              combinedChart={false}
+              label="${label}"
+              minY={${minY}}
+              maxY={${maxY}}
+              stackedBar={stackedBar}
+              line={line}
+            />

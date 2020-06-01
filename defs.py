@@ -26,7 +26,7 @@ def read_data(file_path, enc):
                            sort=False)
         df = df.dropna(axis=1, how='all')
         chartTitle = df.iloc[0,0].split(': ')[1]
-        lable = df.iloc[1,0].split(': ')[1]
+        label = df.iloc[1,0].split(': ')[1]
         df.columns = list(df.iloc[2,:])
         if 'Region' not in df: df.insert(1, 'region', 'missing')
         df.columns = col_names
@@ -34,7 +34,7 @@ def read_data(file_path, enc):
         df['indicator'] = i
         df['chartName'] = i
         df['chartTitle'] = chartTitle
-        df['lable'] = lable
+        df['label'] = label
         data = data.append(df, ignore_index=True)
 
 
