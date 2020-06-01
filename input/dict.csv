@@ -1,8 +1,20 @@
 sheetname,new_sheetname,filename
-web3_Final Energy by Fuels,web3_Final Energy by Fuels,tab1
-web2_Renewables Electricity Pr,web2_Renewables Electricity Pr,tab2
-web3_Final Energy by Fuels,web3_Final Energy by Fuels,tab3
-web3_Final Energy to TRN by Su,web3_Final Energy to TRN by Su,tab3
-web3_Final Energy to RES by Su,web3_Final Energy to RES by Su,tab3
-web1_TPES,web1_TPES,tab1
-web1_CO2-eq Emissions by Secto,web1_TPES,line
+wv_TRA Final Energy Use by Fue,TRA Final Energy Use by Fuel,tab4
+wv_TRA Final Energy Use by Dem,TRA Final Energy Use by Demand,tab4
+wv_TPES,TPES,tab1
+wv_RES Final Energy Use by Fue,RES Final Energy Use by Fuel,tab6
+wv_RES Final Energy Use by Dem,RES Final Energy Use by Demand,tab6
+wv_Renewables_in_TPES,Renewables_in_TPES,tab1
+wv_Primary Energy balance,Primary Energy balance,tab3
+wv_IND Final Energy Use by Fue,IND Final Energy Use by Fuel,tab5
+wv_IND Final Energy Use by Dem,IND Final Energy Use by Demand,tab5
+wv_Final Energy by Sector,Final Energy by Sector,tab1
+wv_Final Energy by Fuel,Final Energy by Fuell,tab1
+wv_Electricity Generation,Electricity Generation,tab2
+wv_Electricity Generating Capa,Electricity Generating Capa,tab2
+wv_COM Final Energy Use by Fue,COM Final Energy Use by Fuel,tab7
+wv_COM Final Energy Use by Dem,COM Final Energy Use by Demand,tab7
+wv_CO2-eq Emissions by Sector,CO2-eq Emissions by Sector,tab1
+wv_Annual System Costs by Type,Annual System Costs by Type,tab1
+wv_AGR Final Energy Use by Fue,AGR Final Energy Use by Fuel,tab8
+wv_AGR Final Energy Use by Dem,AGR Final Energy Use by Demand,tab8
