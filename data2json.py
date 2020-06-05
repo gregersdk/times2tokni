@@ -199,7 +199,7 @@ for k, v in chartLocation.items():
 #%% create scenarioOptions json file
 
 if include_regions: regionNames = data.region.unique()
-with open(dirs['outputDirCode'] + 'scenarioCombinations.js', 'w',
+with open(dirs['outputDirData'] + 'scenarioCombinations.js', 'w',
           encoding=enc) as file:
     text1 = ''
     count1 = 0
@@ -221,13 +221,11 @@ with open(dirs['outputDirCode'] + 'scenarioCombinations.js', 'w',
                      "\", \"short_description\": \"" + i +
                      "\", \"ultra_short_description\": \"" + i + "\" }," +'\n')
             count2 += 1
-    text = ("export default {scenarioCombinations : {" +
-            "scenarioOptions : [" + '\n' +
-            text1[:-2] + '\n' +
-            "]," + '\n' +
-            "regionOptions : [" + '\n' +
-            text2[:-2] + '\n' +
-            "]}}")
+        text2 = ',\n' + "regionOptions : [" + '\n' + text2[:-2] + '\n]'
+    
+    text = ("export default {scenarioCombinations : {" + 
+            "scenarioOptions : [" + '\n' + text1[:-2] + '\n' +
+            "]" + text2 + "}};")
     file.write(text)
 
 #%%

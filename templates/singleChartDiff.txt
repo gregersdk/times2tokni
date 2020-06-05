@@ -1,4 +1,4 @@
-            <StackedBarChart
+            <StackedBarDiffChart
               chartName="${chartName}"
               chartTitle="${chartTitle}"
               selectedScenario={selectedScenario}
@@ -8,5 +8,5 @@
               minY={${minY}}
               maxY={${maxY}}
               stackedBar={stackedBar}
-              line={line}
+              line={false}
             />
