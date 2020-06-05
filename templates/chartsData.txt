@@ -1,0 +1,1 @@
+import ${chartType} from "../data/${chartType}Tab${tabNumber}";

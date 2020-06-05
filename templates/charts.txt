@@ -5,8 +5,7 @@ import StackedBarChart from "./StackedBarChart";
 import StackedBarDiffChart from "./StackedBarDiffChart";
 import ComparisonChart from "./ComparisonChart";
 import { MainArea, Flex } from "./Charts.style";
-import stackedBar from "../data/stackedBar${tabName}";
-import line from "../data/line${tabName}";
+${chartsData}
 
 const Charts = props => {
   const selectedScenario = props.scenarioSelection.scenarioSelection;

@@ -5,15 +5,24 @@ Created on Mon Jun  1 11:09:05 2020
 """
 
 import pandas as pd
+import numpy as np
 import json
 
+def make_dict(df, keys, values):
+    index=list(set(df.columns)-set([keys, values]))
+    df=df.pivot(columns=keys,index=index[0])
+    # Get rid of multiindex
+    df.columns=df.columns.droplevel(0)
+    df_dict=df.to_dict(orient='list')
+    return {k:[i for i in v if i is not np.nan] for k,v in df_dict.items()}
+                
 def read_data(file_path, enc):
 
     # get sheet names from excel input data file, define name and file extension
     xl = pd.ExcelFile(file_path)
     sheet_names = xl.sheet_names
     if 'Sheet1' in sheet_names: sheet_names.remove('Sheet1')
-    col_names = ['scenario', 'region', 'indicatorGroup', 'year', 'total']
+    col_names = ['scenario', 'region', 'entity', 'year', 'total']
 
 
     # load data from all sheets into one dataframe
@@ -25,15 +34,13 @@ def read_data(file_path, enc):
                            encoding=enc,
                            sort=False)
         df = df.dropna(axis=1, how='all')
-        chartTitle = df.iloc[0,0].split(': ')[1]
+        tableName = df.iloc[0,0].split(': ')[1]
         label = df.iloc[1,0].split(': ')[1]
         df.columns = list(df.iloc[2,:])
         if 'Region' not in df: df.insert(1, 'region', 'missing')
         df.columns = col_names
         df = df.iloc[3:,:]
-        df['indicator'] = i
-        df['chartName'] = i
-        df['chartTitle'] = chartTitle
+        df['tableName'] = tableName
         df['label'] = label
         data = data.append(df, ignore_index=True)
 
@@ -48,7 +55,7 @@ def read_data(file_path, enc):
     return data
 
 
-def create_json(df, cats, name, singleLine, enc):
+def create_json(df, cats, name, singleLine, outputDir, enc):
     """
     Creates customized json file from a pandas dataframe and saves it with the
     selected naming.
@@ -97,16 +104,16 @@ def create_json(df, cats, name, singleLine, enc):
     d = d.set_index('scenarios')
 
 
-    with open('output/' + name + '.js', 'w+', encoding=enc) as file:
+    with open(outputDir + name + '.js', 'w+', encoding=enc) as file:
         d.to_json(file, force_ascii=False)
 
 
     if singleLine:
-        js_str = open('output/' + name + '.js', 'r', encoding=enc).read()
-        open('output/' + name + '.js', 'w', encoding=enc)\
+        js_str = open(outputDir + name + '.js', 'r', encoding=enc).read()
+        open(outputDir + name + '.js', 'w', encoding=enc)\
         .write('export default ' + js_str)
     else:
-        js_str = open('output/' + name + '.js', 'r', encoding=enc).read()
-        with open('output/' + name + '.js', 'w', encoding=enc) as file:
+        js_str = open(outputDir + name + '.js', 'r', encoding=enc).read()
+        with open(outputDir + name + '.js', 'w', encoding=enc) as file:
             js_str = json.dumps(json.loads(js_str), indent=2)
             file.write('export default ' + js_str)

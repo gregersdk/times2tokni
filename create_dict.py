@@ -12,7 +12,7 @@ import os
 # get list of all input data files with certain file name extension
 idf_ex = '.xls'
 path_list = glob.glob('input/*' + idf_ex)
-col_names = ['sheetname', 'new_sheetname', 'filename']
+col_names = ['table_name', 'chart_name', 'filename']
 for file_path in path_list:
     idf_n = file_path.split('\\')[1].split('.')[0]
     xl = pd.ExcelFile(file_path)

@@ -1,20 +1,20 @@
-sheetname,new_sheetname,filename
-wv_TRA Final Energy Use by Fue,TRA Final Energy Use by Fuel,stackedBarTab4
-wv_TRA Final Energy Use by Dem,TRA Final Energy Use by Demand,stackedBarTab4
+tableName,chartName,filename
+wv_TRA Final Energy Use by Fuel,TRA Final Energy Use by Fuel,stackedBarTab4
+wv_TRA Final Energy Use by Demand,TRA Final Energy Use by Demand,stackedBarTab4
 wv_TPES,TPES,stackedBarTab1
-wv_RES Final Energy Use by Fue,RES Final Energy Use by Fuel,stackedBarTab6
-wv_RES Final Energy Use by Dem,RES Final Energy Use by Demand,stackedBarTab6
+wv_RES Final Energy Use by Fuel,RES Final Energy Use by Fuel,stackedBarTab6
+wv_RES Final Energy Use by Demand,RES Final Energy Use by Demand,stackedBarTab6
 wv_Renewables_in_TPES,Renewables_in_TPES,stackedBarTab1
-wv_Primary Energy balance,Primary Energy balance,stackedBarTab3
-wv_IND Final Energy Use by Fue,IND Final Energy Use by Fuel,stackedBarTab5
-wv_IND Final Energy Use by Dem,IND Final Energy Use by Demand,stackedBarTab5
+wv_Primary Energy balance,Primary Energy Balance,stackedBarTab3
+wv_IND Final Energy Use by Fuel,IND Final Energy Use by Fuel,stackedBarTab5
+wv_IND Final Energy Use by Demand,IND Final Energy Use by Demand,stackedBarTab5
 wv_Final Energy by Sector,Final Energy by Sector,stackedBarTab1
-wv_Final Energy by Fuel,Final Energy by Fuell,stackedBarTab1
+wv_Final Energy by Fuel,Final Energy by Fuel,stackedBarTab1
 wv_Electricity Generation,Electricity Generation,stackedBarTab2
-wv_Electricity Generating Capa,Electricity Generating Capa,stackedBarTab2
-wv_COM Final Energy Use by Fue,COM Final Energy Use by Fuel,stackedBarTab7
-wv_COM Final Energy Use by Dem,COM Final Energy Use by Demand,stackedBarTab7
+wv_Electricity Generating Capacity,Electricity Generating Capacity,stackedBarTab2
+wv_COM Final Energy Use by Fuel,COM Final Energy Use by Fuel,stackedBarTab7
+wv_COM Final Energy Use by Demand,COM Final Energy Use by Demand,stackedBarTab7
 wv_CO2-eq Emissions by Sector,CO2-eq Emissions by Sector,stackedBarTab1
 wv_Annual System Costs by Type,Annual System Costs by Type,stackedBarTab1
-wv_AGR Final Energy Use by Fue,AGR Final Energy Use by Fuel,stackedBarTab8
-wv_AGR Final Energy Use by Dem,AGR Final Energy Use by Demand,stackedBarTab8
+wv_AGR Final Energy Use by Fuel,AGR Final Energy Use by Fuel,stackedBarTab8
+wv_AGR Final Energy Use by Demand,AGR Final Energy Use by Demand,stackedBarTab8
