@@ -22,7 +22,7 @@ def read_data(file_path, enc):
     xl = pd.ExcelFile(file_path)
     sheet_names = xl.sheet_names
     if 'Sheet1' in sheet_names: sheet_names.remove('Sheet1')
-    col_names = ['scenario', 'region', 'entity', 'year', 'total']
+    col_names = ['scenario', 'region', 'serie', 'year', 'total']
 
 
     # load data from all sheets into one dataframe

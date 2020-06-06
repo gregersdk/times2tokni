@@ -49,7 +49,7 @@ chartLocation = make_dict(chartSettings, keys='filename', values='chartName')
 
 # list of indictor groups that require an algebraic sign switch
 l_as = pd.read_csv(dirs['inputDir']+'algebraic_sign_switch.csv', encoding=enc)
-l_as = l_as.entity.tolist()
+l_as = l_as.serie.tolist()
 
 # load line to bar translation table and make dictionary
 l2b = pd.read_csv(dirs['inputDir']+'line2bar_combinations.csv',
@@ -65,7 +65,7 @@ i2m = pd.read_csv(dirs['inputDir']+'share_calculation.csv', encoding=enc)
 cats = ['scenario',
         'chartName',
         'region',
-        'entity',
+        'serie',
         'year']
 
 # get list of all input data files with certain file name extension
@@ -111,12 +111,12 @@ df3['total'] = 0
 
 # change algebraic sign for selected indicator groups
 for i in l_as:
-    data.loc[data.entity.str.contains(i), 'total'] *= -1
+    data.loc[data.serie.str.contains(i), 'total'] *= -1
 
 # calculate share per scenario and year
-data['multiplier'] = data.entity
+data['multiplier'] = data.serie
 for i in i2m.tableName.unique():
-    dict_i2m = i2m[i2m.tableName==i].set_index(['entity']).multiplier.to_dict()
+    dict_i2m = i2m[i2m.tableName==i].set_index(['serie']).multiplier.to_dict()
     data.multiplier.replace(dict_i2m, inplace=True)
 data.loc[(data.multiplier.str.isnumeric()==False), 'multiplier'] = 0
 data['total_multiplied'] = data.total * data.multiplier
@@ -207,8 +207,10 @@ with open(dirs['outputDirData'] + 'scenarioCombinations.js', 'w',
 #       i = i.replace("_", " ")
         text1 += ("{ \"id\": " + str(count1) +
                  ", \"name\": \"" + i +
+                 "\", \"nameNoOptions\": \"" + i +
                  "\", \"short_description\": \"" + i +
-                 "\", \"ultra_short_description\": \"" + i + "\" }," + '\n')
+                 "\", \"ultra_short_description\": \"" + i +
+                 "\", \"ccs\": false, \"bio\": false" + "},\n")
         count1 += 1
     text2 = ''
     count2 = 0
@@ -217,9 +219,11 @@ with open(dirs['outputDirData'] + 'scenarioCombinations.js', 'w',
             i = i.replace("_", " ")
             text2 += ("{ \"id\": " + str(count2) +
                      ", \"name\": \"" + i +
+                     "\", \"nameNoOptions\": \"" + i +
                      "\", \"country\": \"" + i +
                      "\", \"short_description\": \"" + i +
-                     "\", \"ultra_short_description\": \"" + i + "\" }," +'\n')
+                     "\", \"ultra_short_description\": \"" + i +
+                     "\", \"ccs\": false, \"bio\": false" + "},\n")
             count2 += 1
         text2 = ',\n' + "regionOptions : [" + '\n' + text2[:-2] + '\n]'
     
@@ -247,7 +251,7 @@ for k, v in chartLocation.items():
     #Subset dataframe to include relevant charts
     df = data[data['chartName'].isin(v)].rename(
         columns={'chartName': 'indicator',
-                 'entity': 'indicatorGroup'})
+                 'serie': 'indicatorGroup'})
     
     #Create a json file with subset of charts
     create_json(df, cats, k, singleLine, dirs['outputDirData'], enc)

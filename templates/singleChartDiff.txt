@@ -8,5 +8,5 @@
               minY={${minY}}
               maxY={${maxY}}
               stackedBar={stackedBar}
-              line={false}
+              /*line={Line}*/
             />
