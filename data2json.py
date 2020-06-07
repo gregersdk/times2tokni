@@ -10,6 +10,7 @@ import glob
 import os
 from string import Template
 import re
+from math import log
 
 #%% Set working directory
 # Return absolute path to this file
@@ -18,7 +19,7 @@ absolute_path = os.path.abspath(__file__)
 os.chdir(os.path.dirname(absolute_path))
 
 #%% Load functions defined in other files
-from defs import read_data, create_json, make_dict
+from defs import read_data, create_json, make_dict, make_round
 
 #%% Input and output directories
 # Define input and output directories
@@ -172,12 +173,13 @@ for k, v in chartLocation.items():
     fileChartCode = (i for i in charts if i['chartName'] in v)
     
     for i in fileChartCode:
+        
         chartsCode += Template(singleChartTemplate).safe_substitute(
             chartName=i['chartName'],
             chartTitle=i['chartName'],
             label=i['label'],
-            minY=str(int(i['minY']*1.25)),
-            maxY=str(int(i['maxY']*1.25)))
+            minY=str(make_round(i['minY']*1.2)),
+            maxY=str(make_round(i['maxY']*1.2)))
         
         chartsDiffCode += Template(singleChartDiffTemplate).safe_substitute(
             chartName=i['chartName'],

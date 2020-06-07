@@ -7,6 +7,13 @@ Created on Mon Jun  1 11:09:05 2020
 import pandas as pd
 import numpy as np
 import json
+from math import log
+
+def make_round(x):
+    if x != 0:
+        return round(x,-int(log(abs(x),10)))
+    else:
+        return 0
 
 def make_dict(df, keys, values):
     index=list(set(df.columns)-set([keys, values]))
