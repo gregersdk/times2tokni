@@ -137,7 +137,13 @@ data.loc[data.minY > 0, 'minY'] = 0
 data['maxY'] = data.total
 charts = data.groupby(['tableName',
                        'chartName',
-                       'label']).agg({'minY':'min','maxY':'max'})
+                       'scenario',
+                       'year',
+                       'label']).agg({'minY':'sum','maxY':'sum'})
+charts = charts.groupby(['tableName',
+                         'chartName',
+                         'label']).agg({'minY':'min','maxY':'max'})
+
 charts = charts.reset_index().to_dict('records')
 
 #%% Load templates
@@ -170,8 +176,8 @@ for k, v in chartLocation.items():
             chartName=i['chartName'],
             chartTitle=i['chartName'],
             label=i['label'],
-            minY=str(int(i['minY']*1.5)),
-            maxY=str(int(i['maxY']*1.5)))
+            minY=str(int(i['minY']*1.25)),
+            maxY=str(int(i['maxY']*1.25)))
         
         chartsDiffCode += Template(singleChartDiffTemplate).safe_substitute(
             chartName=i['chartName'],
