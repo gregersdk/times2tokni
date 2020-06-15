@@ -1,20 +1,20 @@
 tableName,chartName,filename
-wv_TRA Final Energy Use by Fuel,TRA Final Energy Use by Fuel,stackedBarTab4
-wv_TRA Final Energy Use by Demand,TRA Final Energy Use by Demand,stackedBarTab4
-wv_TPES,TPES,stackedBarTab1
-wv_RES Final Energy Use by Fuel,RES Final Energy Use by Fuel,stackedBarTab6
-wv_RES Final Energy Use by Demand,RES Final Energy Use by Demand,stackedBarTab6
-wv_Renewables_in_TPES,Renewables_in_TPES,stackedBarTab1
-wv_Primary Energy balance,Primary Energy Balance,stackedBarTab3
-wv_IND Final Energy Use by Fuel,IND Final Energy Use by Fuel,stackedBarTab5
-wv_IND Final Energy Use by Demand,IND Final Energy Use by Demand,stackedBarTab5
-wv_Final Energy by Sector,Final Energy by Sector,stackedBarTab1
-wv_Final Energy by Fuel,Final Energy by Fuel,stackedBarTab1
-wv_Electricity Generation,Electricity Generation,stackedBarTab2
-wv_Electricity Generating Capacity,Electricity Generating Capacity,stackedBarTab2
-wv_COM Final Energy Use by Fuel,COM Final Energy Use by Fuel,stackedBarTab7
-wv_COM Final Energy Use by Demand,COM Final Energy Use by Demand,stackedBarTab7
-wv_CO2-eq Emissions by Sector,CO2-eq Emissions by Sector,stackedBarTab1
-wv_Annual System Costs by Type,Annual System Costs by Type,stackedBarTab1
-wv_AGR Final Energy Use by Fuel,AGR Final Energy Use by Fuel,stackedBarTab8
-wv_AGR Final Energy Use by Demand,AGR Final Energy Use by Demand,stackedBarTab8
+wa_TRA Final Energy Use by Fuel,TRA Final Energy Use by Fuel,stackedBarTab4
+wa_TRA Final Energy Use by Demand,TRA Final Energy Use by Demand,stackedBarTab4
+wa_TPES,TPES,stackedBarTab1
+wa_RES Final Energy Use by Fuel,RES Final Energy Use by Fuel,stackedBarTab6
+wa_RES Final Energy Use by Demand,RES Final Energy Use by Demand,stackedBarTab6
+wa_Renewables_in_TPES,Renewables_in_TPES,stackedBarTab1
+wa_Primary Energy balance,Primary Energy Balance,stackedBarTab3
+wa_IND Final Energy Use by Fuel,IND Final Energy Use by Fuel,stackedBarTab5
+wa_IND Final Energy Use by Demand,IND Final Energy Use by Demand,stackedBarTab5
+wa_Final Energy by Sector,Final Energy by Sector,stackedBarTab1
+wa_Final Energy by Fuel,Final Energy by Fuel,stackedBarTab1
+wa_Electricity Generation,Electricity Generation,stackedBarTab2
+wa_Electricity Generating Capacity,Electricity Generating Capacity,stackedBarTab2
+wa_COM Final Energy Use by Fuel,COM Final Energy Use by Fuel,stackedBarTab7
+wa_COM Final Energy Use by Demand,COM Final Energy Use by Demand,stackedBarTab7
+wa_CO2-eq Emissions by Sector,CO2-eq Emissions by Sector,stackedBarTab1
+wa_Annual System Costs by Type,Annual System Costs by Type,stackedBarTab1
+wa_AGR Final Energy Use by Fuel,AGR Final Energy Use by Fuel,stackedBarTab8
+wa_AGR Final Energy Use by Demand,AGR Final Energy Use by Demand,stackedBarTab8
