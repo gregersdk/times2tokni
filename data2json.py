@@ -122,7 +122,7 @@ for i in i2m.tableName.unique():
                                                   ]).multiplier.to_dict()
     data.multiplier.replace(dict_i2m, inplace=True)
 
-data.loc[(data.multiplier.str.isnumeric() is False), 'multiplier'] = 0
+data.loc[(data.multiplier.str.isnumeric() == False), 'multiplier'] = 0
 data['total_multiplied'] = data.total * data.multiplier
 
 for i in i2m.tableName.unique():
