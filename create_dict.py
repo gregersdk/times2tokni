@@ -3,6 +3,7 @@
 Created on Sun May 31 23:42:46 2020
 
 @author: Olex
+
 """
 
 import pandas as pd
@@ -19,24 +20,18 @@ os.chdir(os.path.dirname(absolute_path))
 inputDir = 'input/'
 outputDir = inputDir
 
+# Update or replace existing chart map
 updateChartMap = True
-
+# Skip old records for which there is no data in the new dataset
+skipOld = True
+# Excel fil extension
 xlExtension = '.xls'
-
 # Name of the file containing chart overview (chart name, table name, location)
 chartMapName = 'dict'
 
 chartMapFields = ['tableName', 'chartName', 'filename']
-
+# Set encoding
 enc = "utf-8"
-
-"""
-possible actions to do with dict file:
-    Update existing, e.g. with new tables, keep only tables with data etc.
-    Write new, assuming all goes to the first tab
-    Clean-up, like update, but also remove those charts without data
-"""
-
 # Sheets that do not have a table and should be excluded
 excludeSheets = ("Sheet1", "Аркуш1", "Ark1", "Φύλλο1", "Лист1", "Tabelle1")
 
@@ -78,11 +73,16 @@ for xlFilePath in xlFiles:
 df = pd.DataFrame(set(tableNames))
 
 if updateChartMap:
+    # Set joint type depending on the choice above
+    if skipOld is True:
+        mergeType = "left"
+    else:
+        mergeType = "outer"
 
     df.columns = [chartMapFields[0]]
 
     # Merge table names with an existing chart map
-    df = df.merge(pd.read_csv(inputDir + chartMapName + ".csv"), "outer")
+    df = df.merge(pd.read_csv(inputDir + chartMapName + ".csv"), mergeType)
 
     # Fill NaN values in filename with empty string
     df[chartMapFields[2]].fillna("", inplace=True)
