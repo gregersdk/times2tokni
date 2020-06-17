@@ -18,13 +18,14 @@ absolute_path = os.path.abspath(__file__)
 os.chdir(os.path.dirname(absolute_path))
 
 # %%Load functions defined in other files
-from defs import read_data, create_json, make_dict, make_round
+from defs import read_data, create_json, make_dict, make_round, update_json
 
 # %% Input and output directories
 # Define input and output directories
 dirs = {'inputDir': 'input/',
         'outputDirData': 'output/data/',
-        'outputDirCode': 'output/charts/'}
+        'outputDirCode': 'output/charts/',
+        'outputDirTrans': 'output/translations/'}
 
 # Ensure input and output directories exist
 for i in dirs.keys():
@@ -258,6 +259,20 @@ data = data.append(res, ignore_index=True, sort=True)
 
 # group by categories and sum the total
 data = data.groupby(cats)['total'].sum().reset_index()
+
+# %% Update translation files
+transMap = {"serie": "legend",
+            "chartName": "chartTitle"}
+
+# Return all json files in a specified location
+transFiles = glob.glob(dirs['outputDirTrans'] + '*.json')
+
+# Iterate through json files
+for i in transFiles:
+    # Iterate through key, value pairs
+    for k,v in transMap.items():
+        # Update the specified json file
+        update_json(data[k].unique(), i, v, enc)
 
 # %% Print files with data
 # Rename some of the categories

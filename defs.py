@@ -7,6 +7,7 @@ Created on Mon Jun  1 11:09:05 2020
 import pandas as pd
 import numpy as np
 import json
+import glob
 from math import log
 
 def make_round(x):
@@ -124,3 +125,20 @@ def create_json(df, cats, name, singleLine, outputDir, enc):
         with open(outputDir + name + '.js', 'w', encoding=enc) as file:
             js_str = json.dumps(json.loads(js_str), indent=2)
             file.write('export default ' + js_str)
+            
+            
+def update_json(includeValues, fileName, updateKey, encoding):    
+    
+    # Read existing json file
+    with open(fileName, mode="rb") as f:
+        data = json.load(f)
+    
+    # Make a generator to include only new items
+    newItems = (i for i in includeValues if i not in data[updateKey].keys())
+    
+    # Add new items to the dictionary with value None
+    for i in newItems:
+        data[updateKey][i] = ""
+    
+    with open(fileName, 'w', encoding=encoding) as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=2)
